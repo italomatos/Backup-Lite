@@ -1,9 +1,17 @@
-ftp:
-  host: localhost
-  user: login
-  pass: password
+general:
+  method: ssh
 
 database:
   host: localhost
   user: root
   pass: 
+  
+ftp:
+  host: localhost
+  user: root
+  pass: 
+  
+ssh:
+  host: localhost
+  user: root
+

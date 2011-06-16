@@ -1,15 +1,15 @@
-require 'net/ftp'
-require 'yaml'
 #call ruby backup.rb "filaname separeted space" "databasename separated space"
-config = YAML.load_file("config.yml")
+#config = YAML.load_file("config.yml")
 
+#config.each do |key, value|
+#	config[key].each {|key_attr, value| instance_variable_set("@#{key_attr}_#{key}", value)}
+#end
 
 #load database config
-config["database"].each {|key, value| instance_variable_set("@#{key}_db", value)}
+#config["database"].each {|key, value| instance_variable_set("@#{key}_db", value)}
 
 #load ftp config
-config["ftp"].each {|key,value| instance_variable_set("@#{key}_ftp", value)}
-
+#config["ftp"].each {|key,value| instance_variable_set("@#{key}_ftp", value)}
 
 
 # backup de banco
@@ -30,8 +30,4 @@ timestamp = Time.now.strftime("%Y%m%d%H%M")
 filename = "backup_#{timestamp}.tar"
 `tar -zcvf #{filename} #{result}`
 
-#enviando via FTP 
-Net::FTP.open(@host_ftp,@user_ftp,@pass_ftp) do |ftp|
-    ftp.login
-    ftp.putbinaryfile(filename,filename, 1024)
-end
+
