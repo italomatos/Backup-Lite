@@ -1,0 +1,9 @@
+ftp:
+  host: localhost
+  user: login
+  pass: password
+
+database:
+  host: localhost
+  user: root
+  pass: 
