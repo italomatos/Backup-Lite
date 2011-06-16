@@ -26,10 +26,12 @@ dir = ARGV[0].split(" ")
 dir.each do |d|
 	result << " " << d
 end
-`tar -zcvf backup.tar #{result}`
+timestamp = Time.now.strftime("%Y%m%d%H%M")
+filename = "backup_#{timestamp}.tar"
+`tar -zcvf #{filename} #{result}`
 
 #enviando via FTP 
 Net::FTP.open(@host_ftp,@user_ftp,@pass_ftp) do |ftp|
     ftp.login
-    ftp.putbinaryfile('backup.tar', 'backup.tar', 1024)
+    ftp.putbinaryfile(filename,filename, 1024)
 end
