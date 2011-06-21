@@ -1,6 +1,7 @@
+require 'backupbase.rb'
 require 'net/ftp'
 
-class FTP < BackupBase
+class Ftp < BackupBase
 	def backup(filename)
 		Net::FTP.open(@host_ftp) do |ftp|
 			ftp.passive = true

@@ -1,5 +1,6 @@
 general:
-  method: ssh
+  method: ftp
+  exclude_files_pattern: *.txt
 
 database:
   host: localhost
